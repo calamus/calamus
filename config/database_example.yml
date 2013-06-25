@@ -1,0 +1,25 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: calamus_development
+  pool: 5
+  username: warrenwright
+  password:
+  min_messages: WARNING
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: calamus_test
+  pool: 5
+  username: warrenwright
+  password:
+  min_messages: WARNING
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: calamus_production
+  pool: 5
+  username: warrenwright
+  password:
