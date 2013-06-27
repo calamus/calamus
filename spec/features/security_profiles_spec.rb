@@ -2,11 +2,11 @@ require 'spec_helper'
 
 feature 'the signin process' do
   background do
-    User.create(email: 'user@example.com', password: 'foobar')
+    SecurityProfile.create(email: 'user@example.com', password: 'foobar')
   end
 
   scenario 'signing in with correct credentials' do
-    visit '/sessions/new'
+    visit '/login'
     within("#session") do
       fill_in 'Login', with: 'user@example.com'
       fill_in 'Password', with: 'foobar'
