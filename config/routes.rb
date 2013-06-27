@@ -1,4 +1,6 @@
 Calamus::Application.routes.draw do
+  devise_for :security_profiles, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }, skip: [:passwords, :registrations]
+
   # required for devise
   root to: "home#index"
 
