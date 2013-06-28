@@ -2,7 +2,7 @@ Calamus::Application.routes.draw do
   devise_for :security_profiles, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }, skip: [:passwords, :registrations]
 
   # required for devise
-  root to: "home#index"
+  # root to: redirect('/login')
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
