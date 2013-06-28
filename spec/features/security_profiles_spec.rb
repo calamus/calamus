@@ -10,6 +10,6 @@ feature 'the signin process' do
     fill_in 'Email', with: 'user@example.com'
     fill_in 'Password', with: 'foobar'
     click_button 'Sign in'
-    expect(page).to have_content 'Success'
+    expect(page).to have_content 'Signed in successfully'
   end
 end
