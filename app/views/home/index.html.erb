@@ -1,1 +1,12 @@
+<div id="user_nav">
+  <% if security_profile_signed_in? %>
+    Logged in as <strong><%= current_security_profile.email %></strong>.
+    <%# <%= link_to 'Edit profile', edit_user_registration_path %1> | %>
+    <%= link_to "Logout", destroy_security_profile_session_path, method: :delete %>
+  <% else %>
+    <%# <%= link_to "Sign up", new_user_registration_path %1> | %>
+    <%= link_to "Login", new_security_profile_session_path %>
+  <% end %>
+</div>
+
 <h2>is this your homework, Larry?</h2>
