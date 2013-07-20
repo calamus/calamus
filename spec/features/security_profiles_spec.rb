@@ -11,5 +11,6 @@ feature 'the signin process' do
     fill_in 'Password', with: 'foobar'
     click_button 'Sign in'
     expect(page).to have_content 'Signed in successfully'
+    expect(current_path).to eq group_path
   end
 end
