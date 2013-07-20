@@ -18,8 +18,14 @@
         <%= link_to "Login", new_security_profile_session_path %>
       <% end %>
     </div>
+
+    <% if notice %>
     <p class="notice"><%= notice %></p>
+    <% end %>
+
+    <% if alert %>
     <p class="alert"><%= alert %></p>
+    <% end %>
 
 <%= yield %>
 
