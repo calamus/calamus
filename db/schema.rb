@@ -13,12 +13,76 @@
 
 ActiveRecord::Schema.define(version: 20130627203343) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  create_table "attendances", force: true do |t|
+    t.string   "status",         limit: 10, default: "Active", null: false
+    t.string   "category",       limit: 10, default: "",       null: false
+    t.integer  "event_id",                                     null: false
+    t.integer  "participant_id",                               null: false
+    t.datetime "rsvp_date",                                    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", force: true do |t|
+    t.string   "status",      limit: 10,  default: "Active", null: false
+    t.string   "category",    limit: 10,  default: "",       null: false
+    t.string   "name",        limit: 50,                     null: false
+    t.string   "description", limit: 150
+    t.string   "agenda",      limit: 150
+    t.integer  "group_id",                                   null: false
+    t.integer  "location_id"
+    t.datetime "start_time",                                 null: false
+    t.datetime "end_time",                                   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups", force: true do |t|
+    t.string   "status",      limit: 10,  default: "Active", null: false
+    t.string   "category",    limit: 10,  default: "",       null: false
+    t.string   "name",        limit: 50,                     null: false
+    t.string   "description", limit: 150,                    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locations", force: true do |t|
+    t.string   "name",        limit: 20, null: false
+    t.integer  "group_id",               null: false
+    t.string   "street1",     limit: 20
+    t.string   "street2",     limit: 20
+    t.string   "city",        limit: 20
+    t.string   "postal_code", limit: 20
+    t.string   "region",      limit: 20
+    t.string   "country",     limit: 20
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "memberships", force: true do |t|
+    t.string   "status",         limit: 10, default: "Active", null: false
+    t.string   "category",       limit: 10, default: "",       null: false
+    t.integer  "group_id",                                     null: false
+    t.integer  "participant_id",                               null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "participants", force: true do |t|
+    t.string   "status",        limit: 10, default: "Active", null: false
+    t.string   "category",      limit: 10, default: "",       null: false
+    t.string   "first_name",    limit: 50
+    t.string   "last_name",     limit: 50
+    t.string   "nickname",      limit: 50
+    t.string   "email_address", limit: 50
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "security_profiles", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.integer  "participant_id",                      null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
