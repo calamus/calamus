@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'the signin process' do
   background do
-    SecurityProfile.create(email: 'user@example.com', password: 'foobar')
+    FactoryGirl.create(:security_profile, email: 'user@example.com', password: 'foobar')
   end
 
   scenario 'signing in with correct credentials' do
