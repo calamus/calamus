@@ -19,5 +19,5 @@
 custom_plan.rb
 zeus.json
 
-# Ignore database.yml
 config/database.yml
+config/initializers/secret_token.rb
