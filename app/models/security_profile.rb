@@ -6,4 +6,8 @@ class SecurityProfile < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :participant
+
+  def group
+    participant.groups.first
+  end
 end
