@@ -9,11 +9,12 @@ end
 
 feature "group details view" do
   let(:user) { create(:security_profile) }
-  let(:membership) { create(:membership, participant: user.participant) }
+  let(:membership) { create(:membership, participant_id: user.participant.id) }
 
   background do
     sign_in user
-    user.participant.memberships = [membership]
+    membership
+    # user.participant.memberships = [membership]
     visit group_path
   end
 
