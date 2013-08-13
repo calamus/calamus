@@ -1,5 +1,5 @@
-<header class="container">
-  <nav id="user_nav">
+<header class="container" role="banner">
+  <nav class="user_nav">
     <% if security_profile_signed_in? %>
       Logged in as <strong><%= current_security_profile.email %></strong>.
       <%# <%= link_to 'Edit profile', edit_user_registration_path %1> | %>
